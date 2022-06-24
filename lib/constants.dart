@@ -6,6 +6,8 @@ const kGreenSecondaryColor = Color(0xFF008052);
 const kBlueColor = Color(0xFF1D8AFF);
 const kBlackColor = Color(0xFF000000);
 const kWhiteColor = Color(0xFFFFFFFF);
+final kLightGreyColor = kWhiteColor.withOpacity(0.85);
+const kDarkGreyColor = Color(0xFFB3B3B3);
 
 const double kDefaultPadding = 16.0;
 

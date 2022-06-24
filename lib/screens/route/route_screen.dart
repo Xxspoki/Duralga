@@ -11,7 +11,7 @@ class RouteScreen extends StatelessWidget {
     final ScrollController scrollController = ScrollController();
 
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(ctx: context),
       body: Padding(
         padding: const EdgeInsets.all(kDefaultPadding),
         child: ListView(

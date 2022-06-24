@@ -16,6 +16,7 @@ class _RouteSearchScreenState extends State<RouteSearchScreen> {
     final TextEditingController textController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kLightGreyColor,
         automaticallyImplyLeading: false,
         title: GestureDetector(
           onTap: () {
@@ -23,41 +24,48 @@ class _RouteSearchScreenState extends State<RouteSearchScreen> {
           },
           child: Row(
             children: [
-              IconButton(
-                splashRadius: 26,
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-                onPressed: () {
-                  Get.back();
-                },
-                icon: const Icon(
-                  Icons.arrow_back_rounded,
-                  color: kBlueColor,
+              Expanded(
+                child: IconButton(
+                  splashRadius: 26,
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_rounded,
+                    color: kBlueColor,
+                  ),
                 ),
               ),
-              TextField(
-                controller: textController,
-                cursorHeight: 20,
-                autofocus: true,
-                cursorColor: kBlueColor,
-                decoration: const InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  hintText: 'Search for bus stops...',
-                  hintStyle: TextStyle(color: kBlueColor),
-                  prefixIconColor: kBlackColor,
+              Expanded(
+                flex: 5,
+                child: TextField(
+                  controller: textController,
+                  cursorHeight: 20,
+                  autofocus: true,
+                  cursorColor: kBlueColor,
+                  decoration: const InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    hintText: 'Search for bus stops...',
+                    hintStyle: TextStyle(color: kBlueColor),
+                    prefixIconColor: kBlackColor,
+                  ),
                 ),
               ),
-              IconButton(
-                splashRadius: 26,
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-                onPressed: () {
-                  textController.clear();
-                },
-                icon: const Icon(Icons.clear, color: kBlueColor),
+              Expanded(
+                child: IconButton(
+                  splashRadius: 26,
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                  onPressed: () {
+                    textController.clear();
+                  },
+                  icon: const Icon(Icons.clear, color: kBlueColor),
+                ),
               )
             ],
           ),
