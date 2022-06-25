@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:duralga/constants.dart';
 import 'package:duralga/screens/home/components/bottom_add_widget.dart';
-import 'package:duralga/consts/data.dart';
 import 'package:duralga/screens/home/components/scrollable_grid_buttons.dart';
 import 'package:duralga/screens/home/components/white_center_buttons.dart';
 import 'package:duralga/screens/setting/setting_screen.dart';
@@ -34,7 +33,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final PanelController _panelController = PanelController();
-  final ScrollController _scrollController = ScrollController();
   final MapController _mapController = MapController();
 
   @override
@@ -45,17 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: _customFloatingButtons(),
       body: Stack(
         children: [
-          SlidingUpPanel(
-            parallaxEnabled: true,
-            parallaxOffset: 0.3,
-            maxHeight: MediaQuery.of(context).size.height / 2.4,
-            minHeight: 120,
-            controller: _panelController,
-            renderPanelSheet: false,
-            collapsed: WhiteFloatingButtons(
-                panelController: _panelController), //collapsed
-            panel: _floatingPanel(panelController: _panelController),
-            body: FlutterMap(
+          Expanded(
+            child: FlutterMap(
               options: MapOptions(
                 center: center,
                 zoom: 12,
@@ -81,6 +70,18 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          SlidingUpPanel(
+            parallaxEnabled: true,
+            parallaxOffset: 0.3,
+            maxHeight: MediaQuery.of(context).size.height / 2.4,
+            minHeight: 120,
+            controller: _panelController,
+            renderPanelSheet: false,
+            collapsed: WhiteFloatingButtons(
+                panelController: _panelController), //collapsed
+            panel: _floatingPanel(panelController: _panelController),
+            // body:
+          ),
         ],
       ),
     );
@@ -94,9 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           FloatingActionButton(
             heroTag: "btn1",
-            onPressed: () {
-              Get.toNamed('/setting');
-            },
+            onPressed: () => Get.to(const SettingScreen()),
             child: Center(
               child: SvgPicture.asset(
                 'assets/icons/settings.svg',
@@ -147,9 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          ScrollableGridButtons(
-            controller: _scrollController,
-          ),
+          const ScrollableGridButtons(),
           const SizedBox(height: 10),
           const BottomAddWidget(),
         ],

@@ -1,7 +1,9 @@
 import 'package:duralga/constants.dart';
+import 'package:duralga/screens/near_me/near_me.dart';
 import 'package:duralga/screens/route/components/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class RouteScreen extends StatelessWidget {
   const RouteScreen({Key? key}) : super(key: key);
@@ -31,6 +33,7 @@ class RouteScreen extends StatelessWidget {
               itemCount: 10,
               itemBuilder: (BuildContext context, int tindex) {
                 return GestureDetector(
+                  onTap: () => Get.to(const BusLocation()),
                   behavior: HitTestBehavior.opaque,
                   child: Card(
                     color: kWhiteColor.withOpacity(0.85),

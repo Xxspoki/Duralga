@@ -96,6 +96,7 @@ class _SettingScreenState extends State<SettingScreen> {
                           onChanged: (String? newValue) {
                             setState(() {
                               dropdownvalue = newValue!;
+                              // ignore: avoid_print
                               print('language dropdown works');
                             });
                           },

@@ -1,6 +1,6 @@
-import 'package:duralga/pages.dart';
 import 'package:duralga/screens/home/home_screen.dart';
-import 'package:duralga/theme.dart';
+import 'package:duralga/theme/light_theme.dart';
+// import 'package:duralga/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // NavigationPages np = Get.put(NavigationPages());
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Duralga',
-      theme: theme(),
+      // darkTheme: darkTheme(),
+      theme: lightTheme(),
       home: const HomeScreen(),
-      getPages: pages,
+      // getPages: np.pages,
     );
   }
 }
